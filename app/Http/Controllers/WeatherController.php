@@ -7,29 +7,57 @@ use Illuminate\Support\Facades\Http;
 
 class WeatherController extends Controller
 {
-
+    //Función para mostrar el formulario
     public function showForm(){
         return view('weather-form');
     }
 
-    //Procesa el formulario post
+    //Función que procesa el formulario y muestra el resultado
     public function posttWeather(Request $request){
         $city=$request->input('city');
+        $pais=$request->input('pais');
+        $region=$request->input('region');
+
         $baseUrl=config('services.weatherapi.url');
         $apikey=config('services.weatherapi.key');
 
+        //Iniciamos location con el valor que el usuario ha puesto en ciudad
+        $location=$city;
+        if($region)$location.=", $region";
+        if($pais)$location.=", $pais";
+        //REalizamos la consulta a la api weatherapi
         $response=Http::get("$baseUrl/current.json", [
             'key' => $apikey,
-            'q' => $city,
+            'q' => $location,
             'lang' => 'es'
         ]);
+        
+        $data=$response->json();
 
-        return view ('weather-result', ['data' => $response->json()]);
+        $localtime=$data['location']['localtime'];
+        $hour=date('H', strtotime($localtime));
+        $isNight=($hour < 6 || $hour >= 18);
 
+        //Determinar la clase CSS según la condición climática
+        $condition=strtolower($data['current']['condition']['text'] ??'');
+        $weatherClass='weather-sunny'; //Clase por defecto
+
+            if (str_contains($condition, 'solead') || str_contains($condition, 'despej')) {
+            $weatherClass =$isNight ? 'weather-clear-night' :  'weather-sunny';
+        } elseif (str_contains($condition, 'nubl')) {
+            $weatherClass = 'weather-cloudy';
+        } elseif (str_contains($condition, 'lluv') || str_contains($condition, 'chubasc')) {
+            $weatherClass = 'weather-rainy';
+        } elseif (str_contains($condition, 'torment')) {
+            $weatherClass = 'weather-stormy';
+        } elseif (str_contains($condition, 'nev')) {
+            $weatherClass = 'weather-snowy';
+        }
+        
+        return view ('weather-result', ['data' => $data, 'weatherClass' => $weatherClass]);
     }
 
     //Función para obtnener el clima actual de una ciudad vía API
-
     public function getWeather($city){
         $baseUrl=config('services.weatherapi.url');
         $apikey=config('services.weatherapi.key');
