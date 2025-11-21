@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Resultado del clima</title>
+    <title>ClimaHorizonte</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
        
       /*Fondo general*/ 
-    body{
+body{
         margin:0;
         padding:0;
         transition: background 1s ease-in-out;/*suaviza el cambio de fondo*/
@@ -169,6 +169,7 @@
     background: linear-gradient(to bottom, #2c3e50, #000000);
     position: relative;
     overflow: hidden;
+   
 }
 
 /* Estrellas */
@@ -187,14 +188,60 @@
     to   { opacity: 1; }
 }
 
+/* Nublado noche */
+.weather-cloudy-night {
+    background: linear-gradient(to bottom, #2c3e50, #000000);
+    position: relative;
+    overflow: hidden;
+}
+.weather-cloudy-night .clouds span {
+    background: #ccc; /* nubes grisáceas */
+    box-shadow: 0 0 15px rgba(200,200,200,0.4);
+}
 
+/* Lluvia noche */
+.weather-rainy-night {
+    background: linear-gradient(to bottom, #1b2631, #000000);
+    position: relative;
+    overflow: hidden;
+}
+.weather-rainy-night .rain span {
+    background: rgba(173,216,230,0.6); /* gotas azul claro */
+}
 
+/* Tormenta noche */
+.weather-stormy-night {
+    background: linear-gradient(to bottom, #0b0c10, #1f2833);
+    position: relative;
+    overflow: hidden;
+}
+.weather-stormy-night .storm {
+    background: rgba(255,255,255,0.05);
+    animation: lightningNight 4s infinite;
+}
+@keyframes lightningNight {
+    0%, 95% { opacity: 0; }
+    96% { opacity: 1; background: rgba(255,255,255,0.7); }
+    100% { opacity: 0; }
+}
 
+/* Nieve noche */
+.weather-snowy-night {
+    background: linear-gradient(to bottom, #2e4053, #000000);
+    position: relative;
+    overflow: hidden;
+}
+.weather-snowy-night .snow span {
+    background: #f0f3f4; /* copos más claros sobre fondo oscuro */
+    box-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
 
-
+.weather-icon {
+    width: 130px;
+    height: 130px;
+}
 </style>
 </head>
-
 
 <body class="{{ $weatherClass }} text-ligth">
 
@@ -233,26 +280,22 @@
     @if($weatherClass === 'weather-sunny')
   <div class="sun"></div>
 @endif
-
-
-
-
     <div class="container mt-5">
-        <div class="card shadow-sm">
+        <div class="card shadow-sm bg-dark text-white">
             <div class="card-header bg-primary text-white">
-                <h2 class="mb-0">Clima en {{ $data['location']['name'] ?? 'Ciudad desconocida' }}</h2>
+                <h2 class="mb-0">Tiempo en {{ $data['location']['name'] ?? 'Ciudad desconocida' }}</h2>
             </div>
             <div class="card-body">
                 @if(isset($data['current']))
                     <div class="row">
                         <div class="col-md-4 text-center">
-                            <img src="{{ $data['current']['condition']['icon'] }}" alt="icono clima" class="img-fluid mb-3">
+                            <img src="{{ $data['current']['condition']['icon'] }}" alt="icono clima" class="mb-3 weather-icon">
                             <h4>{{ $data['current']['condition']['text'] }}</h4>
                         </div>
                         <div class="col-md-8">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item"><strong>País:</strong> {{ $data['location']['country'] }}</li>
-                                <li class="list-group-item"><strong>Región:</strong> {{ $data['location']['region'] }}</li>
+                                <li class="list-group-item"><strong>Comunidad Autónoma o Región:</strong> {{ $data['location']['region'] }}</li>
                                 <li class="list-group-item"><strong>Hora local:</strong> {{ $data['location']['localtime'] }}</li>
                                 <li class="list-group-item"><strong>Temperatura:</strong> {{ $data['current']['temp_c'] }} °C</li>
                                 <li class="list-group-item"><strong>Sensación térmica:</strong> {{ $data['current']['feelslike_c'] }} °C</li>

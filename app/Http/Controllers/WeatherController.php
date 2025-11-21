@@ -45,13 +45,13 @@ class WeatherController extends Controller
             if (str_contains($condition, 'solead') || str_contains($condition, 'despej')) {
             $weatherClass =$isNight ? 'weather-clear-night' :  'weather-sunny';
         } elseif (str_contains($condition, 'nubl')) {
-            $weatherClass = 'weather-cloudy';
+            $weatherClass =$isNight ? 'weather-cloudy-night' : 'weather-cloudy';
         } elseif (str_contains($condition, 'lluv') || str_contains($condition, 'chubasc')) {
-            $weatherClass = 'weather-rainy';
+            $weatherClass =$isNight ? 'weather-rainy-night' : 'weather-rainy';
         } elseif (str_contains($condition, 'torment')) {
-            $weatherClass = 'weather-stormy';
+            $weatherClass =$isNight ? 'weather-stormy-night' : 'weather-stormy';
         } elseif (str_contains($condition, 'nev')) {
-            $weatherClass = 'weather-snowy';
+            $weatherClass =$isNight ? 'weather-snowy-night' : 'weather-snowy';
         }
         
         return view ('weather-result', ['data' => $data, 'weatherClass' => $weatherClass]);
