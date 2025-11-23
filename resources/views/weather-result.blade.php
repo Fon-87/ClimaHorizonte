@@ -242,7 +242,6 @@ body{
 }
 </style>
 </head>
-
 <body class="{{ $weatherClass }} text-ligth">
 
   <!-- Contenedor de lluvia (solo se verá si $weatherClass = 'weather-rainy') -->
@@ -253,7 +252,7 @@ body{
     </div>
     @endif
 
-  <!-- Contenedor de nublado (solo se verá si $weatherClass = 'weather-cloudy') -->
+   <!-- Contenedor de nublado (solo se verá si $weatherClass = 'weather-cloudy') -->
     @if($weatherClass === 'weather-cloudy')
   <div class="clouds">
     <span class="small"></span>
@@ -261,7 +260,6 @@ body{
     <span class="large"></span>
   </div>
 @endif
-
    <!-- Contenedor de tormenta (solo se verá si $weatherClass = 'weather-stormy') -->
     @if($weatherClass === 'weather-stormy')
     <div class="storm"></div>
@@ -275,8 +273,7 @@ body{
     @endfor
   </div>
 @endif
-
-   <!-- Contenedor de nieve (solo se verá si $weatherClass = 'weather-snowy') -->
+   <!-- Contenedor de nieve (solo se verá si $weatherClass = 'weather-sunny') -->
     @if($weatherClass === 'weather-sunny')
   <div class="sun"></div>
 @endif

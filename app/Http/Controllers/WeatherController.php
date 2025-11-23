@@ -25,7 +25,7 @@ class WeatherController extends Controller
         $location=$city;
         if($region)$location.=", $region";
         if($pais)$location.=", $pais";
-        //REalizamos la consulta a la api weatherapi
+        //Realizamos la consulta a la api weatherapi
         $response=Http::get("$baseUrl/current.json", [
             'key' => $apikey,
             'q' => $location,
@@ -44,7 +44,7 @@ class WeatherController extends Controller
 
             if (str_contains($condition, 'solead') || str_contains($condition, 'despej')) {
             $weatherClass =$isNight ? 'weather-clear-night' :  'weather-sunny';
-        } elseif (str_contains($condition, 'nubl')) {
+        } elseif (str_contains($condition, 'nubl') || str_contains($condition, 'parcialm') || str_contains($condition, 'cubiert')) {
             $weatherClass =$isNight ? 'weather-cloudy-night' : 'weather-cloudy';
         } elseif (str_contains($condition, 'lluv') || str_contains($condition, 'chubasc')) {
             $weatherClass =$isNight ? 'weather-rainy-night' : 'weather-rainy';
