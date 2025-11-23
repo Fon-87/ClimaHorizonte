@@ -42,7 +42,7 @@ class WeatherController extends Controller
         $condition=strtolower($data['current']['condition']['text'] ??'');
         $weatherClass='weather-sunny'; //Clase por defecto
 
-            if (str_contains($condition, 'solead') || str_contains($condition, 'despej')) {
+            if (str_contains($condition, 'solead') || str_contains($condition, 'despej') || str_contains($condition, 'clar')) {
             $weatherClass =$isNight ? 'weather-clear-night' :  'weather-sunny';
         } elseif (str_contains($condition, 'nubl') || str_contains($condition, 'parcialm') || str_contains($condition, 'cubiert')) {
             $weatherClass =$isNight ? 'weather-cloudy-night' : 'weather-cloudy';
