@@ -1,6 +1,6 @@
 # 🌤️ ClimaHorizonte
 
-Aplicación web desarrollada en **PHP 8.4** y **Laravel 12.3** que permite consultar el tiempo en cualquier ciudad mediante la API [apiweather.com](https://weatherapi.com).  
+Aplicación web desarrollada en **PHP 8.4** y **Laravel 12.3** que permite consultar el tiempo en cualquier ciudad mediante la API [WeatherAPI.com](https://www.weatherapi.com).  
 El proyecto incluye un formulario de entrada donde el usuario selecciona **país, comunidad autónoma o región y ciudad**, y devuelve un formulario de resultados con todos los datos meteorológicos disponibles.
 
 ---
@@ -13,11 +13,12 @@ El proyecto incluye un formulario de entrada donde el usuario selecciona **país
 ### Formulario de resultados
 ![Formulario de resultados](public/images/ClimaHorizonte-weather-result.png)
 
+---
 
 ## 🚀 Características principales
 
 - Backend construido con **Laravel 12.3**.
-- Integración con la API externa **apiweather.com**.
+- Integración con la API externa **WeatherAPI.com**.
 - Formulario de búsqueda con campos:
   - País
   - Comunidad Autónoma / Región
@@ -34,7 +35,7 @@ El proyecto incluye un formulario de entrada donde el usuario selecciona **país
 - **Bootstrap 5.3**
 - **CSS embebido en Blade** (animaciones, estilos de formularios, fondos)
 - **Blade Templates**
-- **API RESTful (apiweather.com)**
+- **API RESTful (WeatherAPI.com)**
 
 ---
 
@@ -48,10 +49,12 @@ El proyecto incluye un formulario de entrada donde el usuario selecciona **país
 
 ---
 
-## Créditos
-- Datos meteorológicos proporcionados por [apiweather.com](https://apiweather.com).
-- Imagen del formulario obtenida de [Nombre del banco de imágenes] con licencia legal.
+## 📄 Créditos
 
+- Datos meteorológicos proporcionados por [WeatherAPI.com](https://www.weatherapi.com).
+- Imágenes del formulario obtenidas de bancos de imágenes legales con licencia de uso.
+
+---
 
 ## ⚙️ Instalación y configuración
 
