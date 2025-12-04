@@ -13,6 +13,14 @@ El proyecto incluye un formulario de entrada donde el usuario selecciona **país
 ### Formulario de resultados
 ![Formulario de resultados](public/images/ClimaHorizonte-weather-result.png)
 
+### Formulario de entrada
+![Formulario de entrada](public/images/ClimaHorizonte-weather-form-2.png)
+
+### Formulario de resultados
+![Formulario de resultados](public/images/ClimaHorizonte-weather-result-2.png)
+
+---
+
 ---
 
 ## 🚀 Características principales
