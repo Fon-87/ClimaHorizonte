@@ -61,4 +61,4 @@ El proyecto incluye un formulario de entrada donde el usuario selecciona **país
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/Fon-87/ClimaHorizonte.git
-   cd ClimaHorizonte
+   
