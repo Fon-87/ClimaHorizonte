@@ -72,22 +72,13 @@ El framework **Laravel** también es software open‑source con licencia MIT.
 
 ---
 
-👨‍💻 Autor
-Desarrollado por Alfonso
-
 ## ⚙️ Instalación y configuración
-
----
 
 1. Clona el repositorio:
    
    git clone https://github.com/Fon-87/ClimaHorizonte.git
 
 ---
-
-## 📸 Créditos de imágenes
-La imagen utilizada en este proyecto proviene de [Vecteezy](https://www.vecteezy.com/) bajo licencia gratuita.
-
 
 ## 👤 Autor
 
