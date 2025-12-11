@@ -85,6 +85,10 @@ Desarrollado por Alfonso
 
 ---
 
+## 📸 Créditos de imágenes
+La imagen utilizada en este proyecto proviene de [Vecteezy](https://www.vecteezy.com/) bajo licencia gratuita.
+
+
 ## 👤 Autor
 
 - **Nombre:** Alfonso (Fon-87)  
