@@ -82,4 +82,12 @@ Desarrollado por Alfonso
 1. Clona el repositorio:
    
    git clone https://github.com/Fon-87/ClimaHorizonte.git
+
+---
+
+## 👤 Autor
+
+- **Nombre:** Alfonso (Fon-87)  
+- **GitHub:** [@Fon-87](https://github.com/Fon-87)  
+
    
